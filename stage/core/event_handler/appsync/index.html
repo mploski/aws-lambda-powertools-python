@@ -17,7 +17,7 @@
     
     
       
-        <title>GraphQL API - Lambda Powertools Python</title>
+        <title>GraphQL API - AWS Lambda Powertools for Python</title>
       
     
     
@@ -99,7 +99,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Lambda Powertools Python" class="md-header__button md-logo" aria-label="Lambda Powertools Python" data-md-component="logo">
+    <a href="../../.." title="AWS Lambda Powertools for Python" class="md-header__button md-logo" aria-label="AWS Lambda Powertools for Python" data-md-component="logo">
       
   <img src="../../../media/aws-logo-light.svg" alt="logo">
 
@@ -111,7 +111,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Lambda Powertools Python
+            AWS Lambda Powertools for Python
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -218,12 +218,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Lambda Powertools Python" class="md-nav__button md-logo" aria-label="Lambda Powertools Python" data-md-component="logo">
+    <a href="../../.." title="AWS Lambda Powertools for Python" class="md-nav__button md-logo" aria-label="AWS Lambda Powertools for Python" data-md-component="logo">
       
   <img src="../../../media/aws-logo-light.svg" alt="logo">
 
     </a>
-    Lambda Powertools Python
+    AWS Lambda Powertools for Python
   </label>
   
     <div class="md-nav__source">
@@ -1336,7 +1336,21 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="normal">45</span>
 <span class="normal">46</span>
 <span class="normal">47</span>
-<span class="normal">48</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">Response</span>
@@ -1372,7 +1386,7 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 
 <span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">type_name</span><span class="o">=</span><span class="s2">&quot;Query&quot;</span><span class="p">,</span> <span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;listTodos&quot;</span><span class="p">)</span>
 </span><span class="nd">@tracer</span><span class="o">.</span><span class="n">capture_method</span>
-<span class="hll"><span class="k">def</span> <span class="nf">list_todos</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Todo</span><span class="p">]:</span>
+<span class="hll"><span class="k">def</span> <span class="nf">list_todos</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Todo</span><span class="p">]:</span>
 </span>    <span class="n">todos</span><span class="p">:</span> <span class="n">Response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/todos&quot;</span><span class="p">)</span>
     <span class="n">todos</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
 
@@ -1635,11 +1649,11 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 
 <span class="c1"># Scalars: https://docs.aws.amazon.com/appsync/latest/devguide/scalars.html</span>
 
-<span class="n">_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">make_id</span><span class="p">()</span>  <span class="c1"># Scalar: ID!</span>
-<span class="n">_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">aws_date</span><span class="p">()</span>  <span class="c1"># Scalar: AWSDate</span>
-<span class="n">_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">aws_time</span><span class="p">()</span>  <span class="c1"># Scalar: AWSTime</span>
-<span class="n">_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">aws_datetime</span><span class="p">()</span>  <span class="c1"># Scalar: AWSDateTime</span>
-<span class="n">_</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">aws_timestamp</span><span class="p">()</span>  <span class="c1"># Scalar: AWSTimestamp</span>
+<span class="n">my_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">make_id</span><span class="p">()</span>  <span class="c1"># Scalar: ID!</span>
+<span class="n">my_date</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">aws_date</span><span class="p">()</span>  <span class="c1"># Scalar: AWSDate</span>
+<span class="n">my_timestamp</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">aws_time</span><span class="p">()</span>  <span class="c1"># Scalar: AWSTime</span>
+<span class="n">my_datetime</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">aws_datetime</span><span class="p">()</span>  <span class="c1"># Scalar: AWSDateTime</span>
+<span class="n">my_epoch_timestamp</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">aws_timestamp</span><span class="p">()</span>  <span class="c1"># Scalar: AWSTimestamp</span>
 </code></pre></div>
 </td></tr></table>
 <p>Here's a table with their related scalar as a quick reference:</p>
@@ -1718,7 +1732,21 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">aws_lambda_powertools</span> <span class="kn">import</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">Tracer</span>
 <span class="hll"><span class="kn">from</span> <span class="nn">aws_lambda_powertools.event_handler</span> <span class="kn">import</span> <span class="n">AppSyncResolver</span>
@@ -1740,7 +1768,7 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;listLocations&quot;</span><span class="p">)</span>
 </span><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;locations&quot;</span><span class="p">)</span>
 </span><span class="nd">@tracer</span><span class="o">.</span><span class="n">capture_method</span>
-<span class="hll"><span class="k">def</span> <span class="nf">get_locations</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Location</span><span class="p">]:</span>  <span class="c1"># match GraphQL Query arguments</span>
+<span class="hll"><span class="k">def</span> <span class="nf">get_locations</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Location</span><span class="p">]:</span>  <span class="c1"># match GraphQL Query arguments</span>
 </span>    <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">description</span><span class="p">}]</span>
 
 
@@ -1835,8 +1863,22 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">import</span> <span class="nn">aiohttp</span>
 
@@ -1859,7 +1901,7 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 
 
 <span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">type_name</span><span class="o">=</span><span class="s2">&quot;Query&quot;</span><span class="p">,</span> <span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;listTodos&quot;</span><span class="p">)</span>
-</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">list_todos</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Todo</span><span class="p">]:</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">list_todos</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Todo</span><span class="p">]:</span>
 </span>    <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">(</span><span class="n">trace_configs</span><span class="o">=</span><span class="p">[</span><span class="n">aiohttp_trace_config</span><span class="p">()])</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
         <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/todos&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">resp</span><span class="p">:</span>
             <span class="k">return</span> <span class="k">await</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -1969,7 +2011,21 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">aws_lambda_powertools</span> <span class="kn">import</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">Tracer</span>
 <span class="hll"><span class="kn">from</span> <span class="nn">aws_lambda_powertools.event_handler</span> <span class="kn">import</span> <span class="n">AppSyncResolver</span>
@@ -1991,7 +2047,7 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 
 
 <span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">type_name</span><span class="o">=</span><span class="s2">&quot;Query&quot;</span><span class="p">,</span> <span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;listLocations&quot;</span><span class="p">)</span>
-</span><span class="hll"><span class="k">def</span> <span class="nf">list_locations</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Location</span><span class="p">]:</span>
+</span><span class="hll"><span class="k">def</span> <span class="nf">list_locations</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Location</span><span class="p">]:</span>
 </span>    <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">scalar_types_utils</span><span class="o">.</span><span class="n">make_id</span><span class="p">(),</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Smooth Grooves&quot;</span><span class="p">}]</span>
 
 
@@ -2004,7 +2060,7 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="nd">@tracer</span><span class="o">.</span><span class="n">capture_lambda_handler</span>
 <span class="nd">@logger</span><span class="o">.</span><span class="n">inject_lambda_context</span><span class="p">(</span><span class="n">correlation_id_path</span><span class="o">=</span><span class="n">correlation_paths</span><span class="o">.</span><span class="n">APPSYNC_RESOLVER</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">LambdaContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="hll">    <span class="n">app</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+<span class="hll">    <span class="k">return</span> <span class="n">app</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
 </span></code></pre></div>
 </td></tr></table>
 </div>
@@ -2050,7 +2106,21 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="normal">39</span>
 <span class="normal">40</span>
 <span class="normal">41</span>
-<span class="normal">42</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">aws_lambda_powertools</span> <span class="kn">import</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">Tracer</span>
 <span class="hll"><span class="kn">from</span> <span class="nn">aws_lambda_powertools.event_handler</span> <span class="kn">import</span> <span class="n">AppSyncResolver</span>
@@ -2071,8 +2141,8 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 
 
 <span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">type_name</span><span class="o">=</span><span class="s2">&quot;Query&quot;</span><span class="p">,</span> <span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;findMerchant&quot;</span><span class="p">)</span>
-</span><span class="hll"><span class="k">def</span> <span class="nf">find_merchant</span><span class="p">(</span><span class="n">search</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Merchant</span><span class="p">]:</span>
-</span>    <span class="n">merchants</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Merchant</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class="hll"><span class="k">def</span> <span class="nf">find_merchant</span><span class="p">(</span><span class="n">search</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Merchant</span><span class="p">]:</span>
+</span>    <span class="n">merchants</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Merchant</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">scalar_types_utils</span><span class="o">.</span><span class="n">make_id</span><span class="p">(),</span>
             <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Parry-Wood&quot;</span><span class="p">,</span>
@@ -2085,13 +2155,13 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
         <span class="p">},</span>
     <span class="p">]</span>
 
-<span class="hll">    <span class="k">return</span> <span class="nb">next</span><span class="p">((</span><span class="n">merchant</span> <span class="k">for</span> <span class="n">merchant</span> <span class="ow">in</span> <span class="n">merchants</span> <span class="k">if</span> <span class="n">search</span> <span class="o">==</span> <span class="n">merchant</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]),</span> <span class="p">[{}])</span>
+<span class="hll">    <span class="k">return</span> <span class="p">[</span><span class="n">merchant</span> <span class="k">for</span> <span class="n">merchant</span> <span class="ow">in</span> <span class="n">merchants</span> <span class="k">if</span> <span class="n">search</span> <span class="o">==</span> <span class="n">merchant</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span>
 </span>
 
 <span class="nd">@tracer</span><span class="o">.</span><span class="n">capture_lambda_handler</span>
 <span class="nd">@logger</span><span class="o">.</span><span class="n">inject_lambda_context</span><span class="p">(</span><span class="n">correlation_id_path</span><span class="o">=</span><span class="n">correlation_paths</span><span class="o">.</span><span class="n">APPSYNC_RESOLVER</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">LambdaContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="hll">    <span class="n">app</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+<span class="hll">    <span class="k">return</span> <span class="n">app</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
 </span></code></pre></div>
 </td></tr></table>
 </div>
@@ -2269,7 +2339,21 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="normal">40</span>
 <span class="normal">41</span>
 <span class="normal">42</span>
-<span class="normal">43</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">aws_lambda_powertools</span> <span class="kn">import</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">Tracer</span>
 <span class="hll"><span class="kn">from</span> <span class="nn">aws_lambda_powertools.event_handler</span> <span class="kn">import</span> <span class="n">AppSyncResolver</span>
@@ -2294,24 +2378,24 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="hll"><span class="k">class</span> <span class="nc">MyCustomModel</span><span class="p">(</span><span class="n">AppSyncResolverEvent</span><span class="p">):</span>
 </span><span class="hll">    <span class="nd">@property</span>
 </span><span class="hll">    <span class="k">def</span> <span class="nf">country_viewer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_header_value</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;cloudfront-viewer-country&quot;</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_header_value</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;cloudfront-viewer-country&quot;</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># type: ignore[return-value] # sentinel typing # noqa: E501</span>
 
 <span class="hll">    <span class="nd">@property</span>
 </span><span class="hll">    <span class="k">def</span> <span class="nf">api_key</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_header_value</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;x-api-key&quot;</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_header_value</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;x-api-key&quot;</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">case_sensitive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># type: ignore[return-value] # sentinel typing # noqa: E501</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">type_name</span><span class="o">=</span><span class="s2">&quot;Query&quot;</span><span class="p">,</span> <span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;listLocations&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">list_locations</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Location</span><span class="p">]:</span>
+<span class="k">def</span> <span class="nf">list_locations</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Location</span><span class="p">]:</span>
     <span class="c1"># additional properties/methods will now be available under current_event</span>
-<span class="hll">    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request country origin: </span><span class="si">{</span><span class="n">app</span><span class="o">.</span><span class="n">current_event</span><span class="o">.</span><span class="n">country_viewer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="hll">    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request country origin: </span><span class="si">{</span><span class="n">app</span><span class="o">.</span><span class="n">current_event</span><span class="o">.</span><span class="n">country_viewer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># type: ignore[attr-defined]</span>
 </span>    <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">scalar_types_utils</span><span class="o">.</span><span class="n">make_id</span><span class="p">(),</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Perry, James and Carroll&quot;</span><span class="p">}]</span>
 
 
 <span class="nd">@tracer</span><span class="o">.</span><span class="n">capture_lambda_handler</span>
 <span class="nd">@logger</span><span class="o">.</span><span class="n">inject_lambda_context</span><span class="p">(</span><span class="n">correlation_id_path</span><span class="o">=</span><span class="n">correlation_paths</span><span class="o">.</span><span class="n">APPSYNC_RESOLVER</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">LambdaContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="hll">    <span class="n">app</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">data_model</span><span class="o">=</span><span class="n">MyCustomModel</span><span class="p">)</span>
+<span class="hll">    <span class="k">return</span> <span class="n">app</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">data_model</span><span class="o">=</span><span class="n">MyCustomModel</span><span class="p">)</span>
 </span></code></pre></div>
 </td></tr></table>
 </div>
@@ -2441,7 +2525,21 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">aws_lambda_powertools</span> <span class="kn">import</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">Tracer</span>
 <span class="hll"><span class="kn">from</span> <span class="nn">aws_lambda_powertools.event_handler.appsync</span> <span class="kn">import</span> <span class="n">Router</span>
@@ -2461,7 +2559,7 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="hll"><span class="nd">@router</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;listLocations&quot;</span><span class="p">)</span>
 </span><span class="hll"><span class="nd">@router</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;locations&quot;</span><span class="p">)</span>
 </span><span class="nd">@tracer</span><span class="o">.</span><span class="n">capture_method</span>
-<span class="k">def</span> <span class="nf">get_locations</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Location</span><span class="p">]:</span>  <span class="c1"># match GraphQL Query arguments</span>
+<span class="k">def</span> <span class="nf">get_locations</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Location</span><span class="p">]:</span>  <span class="c1"># match GraphQL Query arguments</span>
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">description</span><span class="p">}]</span>
 </code></pre></div>
 </td></tr></table>
@@ -2603,7 +2701,21 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">aws_lambda_powertools</span> <span class="kn">import</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">Tracer</span>
 <span class="kn">from</span> <span class="nn">aws_lambda_powertools.event_handler</span> <span class="kn">import</span> <span class="n">AppSyncResolver</span>
@@ -2625,7 +2737,7 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="nd">@app</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;listLocations&quot;</span><span class="p">)</span>
 <span class="nd">@app</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;locations&quot;</span><span class="p">)</span>
 <span class="nd">@tracer</span><span class="o">.</span><span class="n">capture_method</span>
-<span class="k">def</span> <span class="nf">get_locations</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Location</span><span class="p">]:</span>  <span class="c1"># match GraphQL Query arguments</span>
+<span class="k">def</span> <span class="nf">get_locations</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Location</span><span class="p">]:</span>  <span class="c1"># match GraphQL Query arguments</span>
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">description</span><span class="p">}]</span>
 
 
@@ -2772,12 +2884,14 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="normal">31</span>
 <span class="normal">32</span>
 <span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">import</span> <span class="nn">pytest</span>
-<span class="kn">from</span> <span class="nn">assert_async_graphql_response_module</span> <span class="kn">import</span> <span class="n">Location</span><span class="p">,</span> <span class="n">app</span>  <span class="c1"># instance of AppSyncResolver</span>
+<span class="kn">from</span> <span class="nn">assert_async_graphql_response_module</span> <span class="kn">import</span> <span class="n">Todo</span><span class="p">,</span> <span class="n">app</span>  <span class="c1"># instance of AppSyncResolver</span>
 
 
 <span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
@@ -2798,7 +2912,7 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
     <span class="n">fake_event</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;assert_async_graphql_response.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
 
     <span class="c1"># WHEN</span>
-<span class="hll">    <span class="n">result</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Location</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">app</span><span class="p">(</span><span class="n">fake_event</span><span class="p">,</span> <span class="n">lambda_context</span><span class="p">)</span>
+<span class="hll">    <span class="n">result</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Todo</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">app</span><span class="p">(</span><span class="n">fake_event</span><span class="p">,</span> <span class="n">lambda_context</span><span class="p">)</span>
 </span>    <span class="c1"># alternatively, you can also run a sync test against `lambda_handler`</span>
     <span class="c1"># since `lambda_handler` awaits the coroutine to complete</span>
 
@@ -2846,8 +2960,22 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 <span class="normal">34</span>
 <span class="normal">35</span>
 <span class="normal">36</span>
-<span class="normal">37</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">import</span> <span class="nn">aiohttp</span>
 
@@ -2870,11 +2998,11 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">resolver</span><span class="p">(</span><span class="n">type_name</span><span class="o">=</span><span class="s2">&quot;Query&quot;</span><span class="p">,</span> <span class="n">field_name</span><span class="o">=</span><span class="s2">&quot;listTodos&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">list_todos</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Todo</span><span class="p">]:</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">list_todos</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Todo</span><span class="p">]:</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">(</span><span class="n">trace_configs</span><span class="o">=</span><span class="p">[</span><span class="n">aiohttp_trace_config</span><span class="p">()])</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
         <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/todos&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">resp</span><span class="p">:</span>
-            <span class="c1"># first two results to demo assertion</span>
-            <span class="k">return</span> <span class="k">await</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()[:</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">result</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Todo</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">result</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># first two results to demo assertion</span>
 
 
 <span class="nd">@logger</span><span class="o">.</span><span class="n">inject_lambda_context</span><span class="p">(</span><span class="n">correlation_id_path</span><span class="o">=</span><span class="n">correlation_paths</span><span class="o">.</span><span class="n">APPSYNC_RESOLVER</span><span class="p">)</span>
@@ -2983,7 +3111,7 @@ call <code>get_todo</code> as <code>get_todo(id="todo_id_value")</code>.</p>
   <small>
     
       Last update:
-      2022-07-11
+      2022-07-28
     
   </small>
 </div>

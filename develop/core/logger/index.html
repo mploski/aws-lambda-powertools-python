@@ -17,7 +17,7 @@
     
     
       
-        <title>Logger - Lambda Powertools Python</title>
+        <title>Logger - AWS Lambda Powertools for Python</title>
       
     
     
@@ -99,7 +99,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Lambda Powertools Python" class="md-header__button md-logo" aria-label="Lambda Powertools Python" data-md-component="logo">
+    <a href="../.." title="AWS Lambda Powertools for Python" class="md-header__button md-logo" aria-label="AWS Lambda Powertools for Python" data-md-component="logo">
       
   <img src="../../media/aws-logo-light.svg" alt="logo">
 
@@ -111,7 +111,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Lambda Powertools Python
+            AWS Lambda Powertools for Python
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -218,12 +218,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Lambda Powertools Python" class="md-nav__button md-logo" aria-label="Lambda Powertools Python" data-md-component="logo">
+    <a href="../.." title="AWS Lambda Powertools for Python" class="md-nav__button md-logo" aria-label="AWS Lambda Powertools for Python" data-md-component="logo">
       
   <img src="../../media/aws-logo-light.svg" alt="logo">
 
     </a>
-    Lambda Powertools Python
+    AWS Lambda Powertools for Python
   </label>
   
     <div class="md-nav__source">
@@ -3132,7 +3132,7 @@
 </span>
 
 <span class="hll"><span class="k">class</span> <span class="nc">CustomFormatter</span><span class="p">(</span><span class="n">BasePowertoolsFormatter</span><span class="p">):</span>
-</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_record_order</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_record_order</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">log_record_order</span> <span class="o">=</span> <span class="n">log_record_order</span> <span class="ow">or</span> <span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">,</span> <span class="s2">&quot;location&quot;</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">,</span> <span class="s2">&quot;timestamp&quot;</span><span class="p">]</span>
 </span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">log_format</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log_record_order</span><span class="p">)</span>
 </span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>

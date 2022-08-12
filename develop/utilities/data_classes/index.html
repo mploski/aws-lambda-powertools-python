@@ -17,7 +17,7 @@
     
     
       
-        <title>Event Source Data Classes - Lambda Powertools Python</title>
+        <title>Event Source Data Classes - AWS Lambda Powertools for Python</title>
       
     
     
@@ -99,7 +99,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Lambda Powertools Python" class="md-header__button md-logo" aria-label="Lambda Powertools Python" data-md-component="logo">
+    <a href="../.." title="AWS Lambda Powertools for Python" class="md-header__button md-logo" aria-label="AWS Lambda Powertools for Python" data-md-component="logo">
       
   <img src="../../media/aws-logo-light.svg" alt="logo">
 
@@ -111,7 +111,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Lambda Powertools Python
+            AWS Lambda Powertools for Python
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -218,12 +218,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Lambda Powertools Python" class="md-nav__button md-logo" aria-label="Lambda Powertools Python" data-md-component="logo">
+    <a href="../.." title="AWS Lambda Powertools for Python" class="md-nav__button md-logo" aria-label="AWS Lambda Powertools for Python" data-md-component="logo">
       
   <img src="../../media/aws-logo-light.svg" alt="logo">
 
     </a>
-    Lambda Powertools Python
+    AWS Lambda Powertools for Python
   </label>
   
     <div class="md-nav__source">
@@ -806,6 +806,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lambda-function-url" class="md-nav__link">
+    Lambda Function URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rabbit-mq" class="md-nav__link">
     Rabbit MQ
   </a>
@@ -1136,6 +1143,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lambda-function-url" class="md-nav__link">
+    Lambda Function URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rabbit-mq" class="md-nav__link">
     Rabbit MQ
   </a>
@@ -1201,6 +1215,8 @@
 
 
   <h1>Event Source Data Classes</h1>
+
+<!-- markdownlint-disable MD043 -->
 
 <p>Event Source Data Classes utility provides classes self-describing Lambda event sources.</p>
 <h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
@@ -1328,6 +1344,10 @@ by using the <code>event_source</code> decorator.</p>
 <tr>
 <td><a href="#kinesis-streams">Kinesis Data Stream</a></td>
 <td><code>KinesisStreamEvent</code></td>
+</tr>
+<tr>
+<td><a href="#lambda-function-url">Lambda Function URL</a></td>
+<td><code>LambdaFunctionUrlEvent</code></td>
 </tr>
 <tr>
 <td><a href="#rabbit-mq">Rabbit MQ</a></td>
@@ -2648,11 +2668,29 @@ or plain text, depending on the original payload.</p>
 </div>
 </div>
 </div>
+<h3 id="lambda-function-url">Lambda Function URL<a class="headerlink" href="#lambda-function-url" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:1"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">app.py</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.data_classes</span> <span class="kn">import</span> <span class="n">event_source</span><span class="p">,</span> <span class="n">LambdaFunctionUrlEvent</span>
+
+<span class="nd">@event_source</span><span class="p">(</span><span class="n">data_class</span><span class="o">=</span><span class="n">LambdaFunctionUrlEvent</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="n">LambdaFunctionUrlEvent</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">do_something_with</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</div>
 <h3 id="rabbit-mq">Rabbit MQ<a class="headerlink" href="#rabbit-mq" title="Permanent link">&para;</a></h3>
 <p>It is used for <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html" target="_blank">Rabbit MQ payloads</a>, also see
 the <a href="https://aws.amazon.com/blogs/compute/using-amazon-mq-for-rabbitmq-as-an-event-source-for-lambda/" target="_blank">blog post</a>
 for more details.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="21:1"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">app.py</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:1"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">app.py</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2692,7 +2730,7 @@ for more details.</p>
 </div>
 </div>
 <h3 id="s3">S3<a class="headerlink" href="#s3" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="22:1"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">app.py</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="23:1"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><div class="tabbed-labels"><label for="__tabbed_23_1">app.py</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2725,7 +2763,7 @@ for more details.</p>
 </div>
 <h3 id="s3-object-lambda">S3 Object Lambda<a class="headerlink" href="#s3-object-lambda" title="Permanent link">&para;</a></h3>
 <p>This example is based on the AWS Blog post <a href="https://aws.amazon.com/blogs/aws/introducing-amazon-s3-object-lambda-use-your-code-to-process-data-as-it-is-being-retrieved-from-s3/" target="_blank">Introducing Amazon S3 Object Lambda – Use Your Code to Process Data as It Is Being Retrieved from S3</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="23:1"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><div class="tabbed-labels"><label for="__tabbed_23_1">app.py</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="24:1"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><div class="tabbed-labels"><label for="__tabbed_24_1">app.py</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2789,7 +2827,7 @@ for more details.</p>
 </div>
 </div>
 <h3 id="ses">SES<a class="headerlink" href="#ses" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="24:1"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><div class="tabbed-labels"><label for="__tabbed_24_1">app.py</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="25:1"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><div class="tabbed-labels"><label for="__tabbed_25_1">app.py</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2817,7 +2855,7 @@ for more details.</p>
 </div>
 </div>
 <h3 id="sns">SNS<a class="headerlink" href="#sns" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="25:1"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><div class="tabbed-labels"><label for="__tabbed_25_1">app.py</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="26:1"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio" /><div class="tabbed-labels"><label for="__tabbed_26_1">app.py</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -2845,7 +2883,7 @@ for more details.</p>
 </div>
 </div>
 <h3 id="sqs">SQS<a class="headerlink" href="#sqs" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="26:1"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio" /><div class="tabbed-labels"><label for="__tabbed_26_1">app.py</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="27:1"><input checked="checked" id="__tabbed_27_1" name="__tabbed_27" type="radio" /><div class="tabbed-labels"><label for="__tabbed_27_1">app.py</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -2872,7 +2910,7 @@ for more details.</p>
   <small>
     
       Last update:
-      2021-12-30
+      2022-08-04
     
   </small>
 </div>

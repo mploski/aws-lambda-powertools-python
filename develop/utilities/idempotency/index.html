@@ -17,7 +17,7 @@
     
     
       
-        <title>Idempotency - Lambda Powertools Python</title>
+        <title>Idempotency - AWS Lambda Powertools for Python</title>
       
     
     
@@ -99,7 +99,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Lambda Powertools Python" class="md-header__button md-logo" aria-label="Lambda Powertools Python" data-md-component="logo">
+    <a href="../.." title="AWS Lambda Powertools for Python" class="md-header__button md-logo" aria-label="AWS Lambda Powertools for Python" data-md-component="logo">
       
   <img src="../../media/aws-logo-light.svg" alt="logo">
 
@@ -111,7 +111,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Lambda Powertools Python
+            AWS Lambda Powertools for Python
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -218,12 +218,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Lambda Powertools Python" class="md-nav__button md-logo" aria-label="Lambda Powertools Python" data-md-component="logo">
+    <a href="../.." title="AWS Lambda Powertools for Python" class="md-nav__button md-logo" aria-label="AWS Lambda Powertools for Python" data-md-component="logo">
       
   <img src="../../media/aws-logo-light.svg" alt="logo">
 
     </a>
-    Lambda Powertools Python
+    AWS Lambda Powertools for Python
   </label>
   
     <div class="md-nav__source">
@@ -714,6 +714,26 @@
     Idempotency request flow
   </a>
   
+    <nav class="md-nav" aria-label="Idempotency request flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambda-timeouts" class="md-nav__link">
+    Lambda timeouts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda-timeout-sequence-diagram" class="md-nav__link">
+    Lambda timeout sequence diagram
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1021,6 +1041,26 @@
     Idempotency request flow
   </a>
   
+    <nav class="md-nav" aria-label="Idempotency request flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambda-timeouts" class="md-nav__link">
+    Lambda timeouts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda-timeout-sequence-diagram" class="md-nav__link">
+    Lambda timeout sequence diagram
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1226,6 +1266,7 @@ times with the same parameters</strong>. This makes idempotent operations safe t
 <li>Ensure Lambda handler returns the same result when called with the same payload</li>
 <li>Select a subset of the event as the idempotency key using JMESPath expressions</li>
 <li>Set a time window in which records with the same payload should be considered duplicates</li>
+<li>Expires in-progress executions if the Lambda function times out halfway through</li>
 </ul>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <h3 id="required-resources">Required resources<a class="headerlink" href="#required-resources" title="Permanent link">&para;</a></h3>
@@ -1416,7 +1457,8 @@ estimate the cost.</p>
 <span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.batch</span> <span class="kn">import</span> <span class="p">(</span><span class="n">BatchProcessor</span><span class="p">,</span> <span class="n">EventType</span><span class="p">,</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.batch</span> <span class="kn">import</span> <span class="p">(</span><span class="n">BatchProcessor</span><span class="p">,</span> <span class="n">EventType</span><span class="p">,</span>
                                                    <span class="n">batch_processor</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.data_classes.sqs_event</span> <span class="kn">import</span> <span class="n">SQSRecord</span>
 <span class="hll"><span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.idempotency</span> <span class="kn">import</span> <span class="p">(</span>
@@ -1445,7 +1487,8 @@ estimate the cost.</p>
 <span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="c1"># `data` parameter must be called as a keyword argument to work</span>
 <span class="hll">    <span class="n">dummy</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;universe&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
-</span>    <span class="k">return</span> <span class="n">processor</span><span class="o">.</span><span class="n">response</span><span class="p">()</span>
+</span>    <span class="n">config</span><span class="o">.</span><span class="n">register_lambda_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="c1"># see Lambda timeouts section</span>
+    <span class="k">return</span> <span class="n">processor</span><span class="o">.</span><span class="n">response</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
 </div>
@@ -1536,7 +1579,8 @@ estimate the cost.</p>
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
 
 <span class="hll"><span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.idempotency</span> <span class="kn">import</span> <span class="p">(</span>
 </span><span class="hll">    <span class="n">DynamoDBPersistenceLayer</span><span class="p">,</span> <span class="n">IdempotencyConfig</span><span class="p">,</span> <span class="n">idempotent_function</span><span class="p">)</span>
@@ -1562,12 +1606,13 @@ estimate the cost.</p>
 </span><span class="k">def</span> <span class="nf">process_order</span><span class="p">(</span><span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">):</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;processed order </span><span class="si">{</span><span class="n">order</span><span class="o">.</span><span class="n">order_id</span><span class="si">}</span><span class="s2">&quot;</span>
 
+<span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">register_lambda_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="c1"># see Lambda timeouts section</span>
+    <span class="n">order_item</span> <span class="o">=</span> <span class="n">OrderItem</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s2">&quot;fake&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;sample&quot;</span><span class="p">)</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">order_item</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s2">&quot;fake-id&quot;</span><span class="p">)</span>
 
-<span class="n">order_item</span> <span class="o">=</span> <span class="n">OrderItem</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s2">&quot;fake&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;sample&quot;</span><span class="p">)</span>
-<span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">order_item</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s2">&quot;fake-id&quot;</span><span class="p">)</span>
-
-<span class="c1"># `order` parameter must be called as a keyword argument to work</span>
-<span class="hll"><span class="n">process_order</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
+    <span class="c1"># `order` parameter must be called as a keyword argument to work</span>
+<span class="hll">    <span class="n">process_order</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
 </span></code></pre></div>
 </td></tr></table>
 </div>
@@ -1602,7 +1647,8 @@ estimate the cost.</p>
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.idempotency</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.idempotency</span> <span class="kn">import</span> <span class="p">(</span>
 </span><span class="hll">    <span class="n">DynamoDBPersistenceLayer</span><span class="p">,</span> <span class="n">IdempotencyConfig</span><span class="p">,</span> <span class="n">idempotent_function</span><span class="p">)</span>
 </span><span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.parser</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
@@ -1627,12 +1673,13 @@ estimate the cost.</p>
 </span><span class="k">def</span> <span class="nf">process_order</span><span class="p">(</span><span class="n">order</span><span class="p">:</span> <span class="n">Order</span><span class="p">):</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;processed order </span><span class="si">{</span><span class="n">order</span><span class="o">.</span><span class="n">order_id</span><span class="si">}</span><span class="s2">&quot;</span>
 
+<span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">register_lambda_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="c1"># see Lambda timeouts section</span>
+    <span class="n">order_item</span> <span class="o">=</span> <span class="n">OrderItem</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s2">&quot;fake&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;sample&quot;</span><span class="p">)</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">order_item</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s2">&quot;fake-id&quot;</span><span class="p">)</span>
 
-<span class="n">order_item</span> <span class="o">=</span> <span class="n">OrderItem</span><span class="p">(</span><span class="n">sku</span><span class="o">=</span><span class="s2">&quot;fake&quot;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;sample&quot;</span><span class="p">)</span>
-<span class="n">order</span> <span class="o">=</span> <span class="n">Order</span><span class="p">(</span><span class="n">item</span><span class="o">=</span><span class="n">order_item</span><span class="p">,</span> <span class="n">order_id</span><span class="o">=</span><span class="s2">&quot;fake-id&quot;</span><span class="p">)</span>
-
-<span class="c1"># `order` parameter must be called as a keyword argument to work</span>
-<span class="hll"><span class="n">process_order</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
+    <span class="c1"># `order` parameter must be called as a keyword argument to work</span>
+<span class="hll">    <span class="n">process_order</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
 </span></code></pre></div>
 </td></tr></table>
 </div>
@@ -1774,16 +1821,139 @@ estimate the cost.</p>
 </div>
 <h3 id="idempotency-request-flow">Idempotency request flow<a class="headerlink" href="#idempotency-request-flow" title="Permanent link">&para;</a></h3>
 <p>This sequence diagram shows an example flow of what happens in the payment scenario:</p>
-<p><img alt="Idempotent sequence" src="../../media/idempotent_sequence.png" /></p>
+<p><center>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Client
+    participant Lambda
+    participant Persistence Layer
+    alt initial request
+        Client-&gt;&gt;Lambda: Invoke (event)
+        Lambda-&gt;&gt;Persistence Layer: Get or set (id=event.search(payload))
+        activate Persistence Layer
+        Note right of Persistence Layer: Locked to prevent concurrent&lt;br/&gt;invocations with &lt;br/&gt; the same payload.
+        Lambda--&gt;&gt;Lambda: Call handler (event)
+        Lambda-&gt;&gt;Persistence Layer: Update record with result
+        deactivate Persistence Layer
+        Persistence Layer--&gt;&gt;Persistence Layer: Update record with result
+        Lambda--&gt;&gt;Client: Response sent to client
+    else retried request
+        Client-&gt;&gt;Lambda: Invoke (event)
+        Lambda-&gt;&gt;Persistence Layer: Get or set (id=event.search(payload))
+        Persistence Layer--&gt;&gt;Lambda: Already exists in persistence layer. Return result
+        Lambda--&gt;&gt;Client: Response sent to client
+    end</code></pre>
+<i>Idempotent sequence</i>
+</center></p>
 <p>The client was successful in receiving the result after the retry. Since the Lambda handler was only executed once, our customer hasn't been charged twice.</p>
 <details class="note" open="open">
 <summary>Note</summary>
 <p>Bear in mind that the entire Lambda handler is treated as a single idempotent operation. If your Lambda handler can cause multiple side effects, consider splitting it into separate functions.</p>
 </details>
+<h4 id="lambda-timeouts">Lambda timeouts<a class="headerlink" href="#lambda-timeouts" title="Permanent link">&para;</a></h4>
+<details class="note" open="open">
+<summary>Note</summary>
+<p>This is automatically done when you decorate your Lambda handler with <a href="#idempotent-decorator">@idempotent decorator</a>.</p>
+</details>
+<p>To prevent against extended failed retries when a <a href="https://aws.amazon.com/premiumsupport/knowledge-center/lambda-verify-invocation-timeouts/">Lambda function times out</a>, Powertools calculates and includes the remaining invocation available time as part of the idempotency record.</p>
+<details class="example" open="open">
+<summary>Example</summary>
+<p>If a second invocation happens <strong>after</strong> this timestamp, and the record is marked as <code>INPROGRESS</code>, we will execute the invocation again as if it was in the <code>EXPIRED</code> state (e.g, <code>expire_seconds</code> field elapsed).</p>
+<p>This means that if an invocation expired during execution, it will be quickly executed again on the next retry.</p>
+</details>
+<details class="important" open="open">
+<summary>Important</summary>
+<p>If you are only using the <a href="#idempotentfunction-decorator">@idempotent_function decorator</a> to guard isolated parts of your code, you must use <code>register_lambda_context</code> available in the <a href="#customizing-the-default-behavior">idempotency config object</a> to benefit from this protection.</p>
+</details>
+<p>Here is an example on how you register the Lambda context in your handler:</p>
+<table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Registering the Lambda context</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.data_classes.sqs_event</span> <span class="kn">import</span> <span class="n">SQSRecord</span>
+<span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.idempotency</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">IdempotencyConfig</span><span class="p">,</span> <span class="n">idempotent_function</span>
+<span class="p">)</span>
+
+<span class="n">persistence_layer</span> <span class="o">=</span> <span class="n">DynamoDBPersistenceLayer</span><span class="p">(</span><span class="n">table_name</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+
+<span class="hll"><span class="n">config</span> <span class="o">=</span> <span class="n">IdempotencyConfig</span><span class="p">()</span>
+</span>
+<span class="nd">@idempotent_function</span><span class="p">(</span><span class="n">data_keyword_argument</span><span class="o">=</span><span class="s2">&quot;record&quot;</span><span class="p">,</span> <span class="n">persistence_store</span><span class="o">=</span><span class="n">persistence_layer</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">record_handler</span><span class="p">(</span><span class="n">record</span><span class="p">:</span> <span class="n">SQSRecord</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;body&quot;</span><span class="p">]}</span>
+
+
+<span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="hll">    <span class="n">config</span><span class="o">.</span><span class="n">register_lambda_context</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</span>
+    <span class="k">return</span> <span class="n">record_handler</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="lambda-timeout-sequence-diagram">Lambda timeout sequence diagram<a class="headerlink" href="#lambda-timeout-sequence-diagram" title="Permanent link">&para;</a></h4>
+<p>This sequence diagram shows an example flow of what happens if a Lambda function times out:</p>
+<p><center>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Client
+    participant Lambda
+    participant Persistence Layer
+    alt initial request
+        Client-&gt;&gt;Lambda: Invoke (event)
+        Lambda-&gt;&gt;Persistence Layer: Get or set (id=event.search(payload))
+        activate Persistence Layer
+        Note right of Persistence Layer: Locked to prevent concurrent&lt;br/&gt;invocations with &lt;br/&gt; the same payload.
+        Note over Lambda: Time out
+        Lambda--xLambda: Call handler (event)
+        Lambda--&gt;&gt;Client: Return error response
+        deactivate Persistence Layer
+    else concurrent request before timeout
+        Client-&gt;&gt;Lambda: Invoke (event)
+        Lambda-&gt;&gt;Persistence Layer: Get or set (id=event.search(payload))
+        Persistence Layer--&gt;&gt;Lambda: Request already INPROGRESS
+        Lambda--xClient: Return IdempotencyAlreadyInProgressError
+    else retry after Lambda timeout
+        Client-&gt;&gt;Lambda: Invoke (event)
+        Lambda-&gt;&gt;Persistence Layer: Get or set (id=event.search(payload))
+        activate Persistence Layer
+        Note right of Persistence Layer: Locked to prevent concurrent&lt;br/&gt;invocations with &lt;br/&gt; the same payload.
+        Lambda--&gt;&gt;Lambda: Call handler (event)
+        Lambda-&gt;&gt;Persistence Layer: Update record with result
+        deactivate Persistence Layer
+        Persistence Layer--&gt;&gt;Persistence Layer: Update record with result
+        Lambda--&gt;&gt;Client: Response sent to client
+    end</code></pre>
+<i>Idempotent sequence for Lambda timeouts</i>
+</center></p>
 <h3 id="handling-exceptions">Handling exceptions<a class="headerlink" href="#handling-exceptions" title="Permanent link">&para;</a></h3>
 <p>If you are using the <code>idempotent</code> decorator on your Lambda handler, any unhandled exceptions that are raised during the code execution will cause <strong>the record in the persistence layer to be deleted</strong>.
 This means that new invocations will execute your code again despite having the same payload. If you don't want the record to be deleted, you need to catch exceptions within the idempotent function and return a successful response.</p>
-<p><img alt="Idempotent sequence exception" src="../../media/idempotent_sequence_exception.png" /></p>
+<p><center>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Client
+    participant Lambda
+    participant Persistence Layer
+    Client-&gt;&gt;Lambda: Invoke (event)
+    Lambda-&gt;&gt;Persistence Layer: Get or set (id=event.search(payload))
+    activate Persistence Layer
+    Note right of Persistence Layer: Locked during this time. Prevents multiple&lt;br/&gt;Lambda invocations with the same&lt;br/&gt;payload running concurrently.
+    Lambda--xLambda: Call handler (event).&lt;br/&gt;Raises exception
+    Lambda-&gt;&gt;Persistence Layer: Delete record (id=event.search(payload))
+    deactivate Persistence Layer
+    Lambda--&gt;&gt;Client: Return error response</code></pre>
+<i>Idempotent sequence exception</i>
+</center></p>
 <p>If you are using <code>idempotent_function</code>, any unhandled exceptions that are raised <em>inside</em> the decorated function will cause the record in the persistence layer to be deleted, and allow the function to be executed again if retried.</p>
 <p>If an Exception is raised <em>outside</em> the scope of the decorated function and after your function has been called, the persistent record will not be affected. In this case, idempotency will be maintained for your decorated function. Example:</p>
 <table class="highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Exception not affecting idempotency record sample</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1836,12 +2006,14 @@ This means that new invocations will execute your code again despite having the 
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.idempotency</span> <span class="kn">import</span> <span class="n">DynamoDBPersistenceLayer</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">aws_lambda_powertools.utilities.idempotency</span> <span class="kn">import</span> <span class="n">DynamoDBPersistenceLayer</span>
 
 <span class="n">persistence_layer</span> <span class="o">=</span> <span class="n">DynamoDBPersistenceLayer</span><span class="p">(</span>
     <span class="n">table_name</span><span class="o">=</span><span class="s2">&quot;IdempotencyTable&quot;</span><span class="p">,</span>
 <span class="hll">    <span class="n">key_attr</span><span class="o">=</span><span class="s2">&quot;idempotency_key&quot;</span><span class="p">,</span>
 </span><span class="hll">    <span class="n">expiry_attr</span><span class="o">=</span><span class="s2">&quot;expires_at&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">in_progress_expiry_attr</span><span class="o">=</span><span class="s2">&quot;in_progress_expires_at&quot;</span><span class="p">,</span>
 </span><span class="hll">    <span class="n">status_attr</span><span class="o">=</span><span class="s2">&quot;current_status&quot;</span><span class="p">,</span>
 </span><span class="hll">    <span class="n">data_attr</span><span class="o">=</span><span class="s2">&quot;result_data&quot;</span><span class="p">,</span>
 </span><span class="hll">    <span class="n">validation_key_attr</span><span class="o">=</span><span class="s2">&quot;validation_key&quot;</span><span class="p">,</span>
@@ -1876,6 +2048,12 @@ This means that new invocations will execute your code again despite having the 
 <td></td>
 <td><code>expiration</code></td>
 <td>Unix timestamp of when record expires</td>
+</tr>
+<tr>
+<td><strong>in_progress_expiry_attr</strong></td>
+<td></td>
+<td><code>in_progress_expiration</code></td>
+<td>Unix timestamp of when record expires while in progress (in case of the invocation times out)</td>
 </tr>
 <tr>
 <td><strong>status_attr</strong></td>
@@ -2854,7 +3032,7 @@ This means it is possible to pass a mocked Table resource, or stub various metho
   <small>
     
       Last update:
-      2022-06-23
+      2022-07-29
     
   </small>
 </div>
