@@ -12,8 +12,14 @@
         <meta name="author" content="Amazon Web Services">
       
       
+      
+        <link rel="prev" href="../validation/">
+      
+      
+        <link rel="next" href="../parser/">
+      
       <link rel="icon" href="../../media/aws-logo-light.svg">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
@@ -21,11 +27,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
-        
       
       
 
@@ -130,8 +135,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
@@ -139,8 +142,6 @@
             </label>
           
         
-          
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
@@ -179,7 +180,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -363,8 +364,11 @@
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
       
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
       
         
@@ -378,7 +382,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_8">
+        <label class="md-nav__link" for="__nav_8" tabindex="0" aria-expanded="false">
           Core utilities
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -441,8 +445,11 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_4" type="checkbox" id="__nav_8_4" checked>
       
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_8_4" type="checkbox" id="__nav_8_4" >
       
       
         
@@ -452,7 +459,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_8_4">
+        <label class="md-nav__link" for="__nav_8_4" tabindex="0" aria-expanded="false">
           Event Handler
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -520,38 +527,39 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
       
       
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
       
       
-        <label class="md-nav__link" for="__nav_9">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_9" tabindex="0" aria-expanded="true">
           Utilities
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1329,10 +1337,9 @@
                 
                   
 
-  <a href="https://github.com/awslabs/aws-lambda-powertools-python/edit/develop/docs/utilities/data_classes.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+  
+  
+
 
 
   <h1>Event Source Data Classes</h1>
@@ -1899,7 +1906,7 @@ or read the Amplify documentation on using <a href="https://docs.amplify.aws/lib
 
 
 <span class="k">def</span> <span class="nf">get_user_by_token</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Look a user by token&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Look a user by token&quot;&quot;&quot;</span>
     <span class="o">...</span>
 
 
@@ -1972,7 +1979,7 @@ and <a href="https://aws.amazon.com/blogs/mobile/appsync-direct-lambda/" target=
 <span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">get_locations</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Your resolver logic here&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Your resolver logic here&quot;&quot;&quot;</span>
 
 <span class="hll"><span class="nd">@logger</span><span class="o">.</span><span class="n">inject_lambda_context</span><span class="p">(</span><span class="n">correlation_id_path</span><span class="o">=</span><span class="n">correlation_paths</span><span class="o">.</span><span class="n">APPSYNC_RESOLVER</span><span class="p">)</span>
 </span><span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
@@ -2022,31 +2029,31 @@ and <a href="https://aws.amazon.com/blogs/mobile/appsync-direct-lambda/" target=
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="hll"><span class="w">  </span><span class="nt">&quot;typeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Merchant&quot;</span><span class="p">,</span><span class="w"></span>
-</span><span class="hll"><span class="w">  </span><span class="nt">&quot;fieldName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;locations&quot;</span><span class="p">,</span><span class="w"></span>
-</span><span class="hll"><span class="w">  </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="w"></span>
-</span><span class="hll"><span class="w">  </span><span class="p">},</span><span class="w"></span>
-</span><span class="w">  </span><span class="nt">&quot;identity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;claims&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nt">&quot;iat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1615366261</span><span class="w"></span>
-<span class="w">      </span><span class="err">...</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="hll"><span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mike&quot;</span><span class="p">,</span><span class="w"></span>
-</span><span class="w">    </span><span class="err">...</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;headers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="hll"><span class="w">      </span><span class="nt">&quot;x-amzn-trace-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Root=1-60488877-0b0c4e6727ab2a1c545babd0&quot;</span><span class="p">,</span><span class="w"></span>
-</span><span class="hll"><span class="w">      </span><span class="nt">&quot;x-forwarded-for&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w"></span>
-</span><span class="w">      </span><span class="err">...</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="err">...</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="hll"><span class="w">  </span><span class="nt">&quot;typeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Merchant&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">  </span><span class="nt">&quot;fieldName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;locations&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">  </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span class="hll"><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
+</span><span class="hll"><span class="w">  </span><span class="p">},</span>
+</span><span class="w">  </span><span class="nt">&quot;identity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;claims&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;iat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1615366261</span>
+<span class="w">      </span><span class="err">...</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mike&quot;</span><span class="p">,</span>
+</span><span class="w">    </span><span class="err">...</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;headers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">      </span><span class="nt">&quot;x-amzn-trace-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Root=1-60488877-0b0c4e6727ab2a1c545babd0&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">      </span><span class="nt">&quot;x-forwarded-for&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span>
+</span><span class="w">      </span><span class="err">...</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
@@ -2066,23 +2073,23 @@ and <a href="https://aws.amazon.com/blogs/mobile/appsync-direct-lambda/" target=
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;lambda_handler:22&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:{</span><span class="w"></span>
-<span class="hll"><span class="w">        </span><span class="nt">&quot;x-forwarded-for&quot;</span><span class="p">:</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="w"></span>
-</span><span class="hll"><span class="w">        </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="s2">&quot;mike&quot;</span><span class="w"></span>
-</span><span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="s2">&quot;2021-03-10 12:38:40,062&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="s2">&quot;service_undefined&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;sampling_rate&quot;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;cold_start&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;function_name&quot;</span><span class="p">:</span><span class="s2">&quot;func_name&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;function_memory_size&quot;</span><span class="p">:</span><span class="mi">512</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;function_arn&quot;</span><span class="p">:</span><span class="s2">&quot;func_arn&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;function_request_id&quot;</span><span class="p">:</span><span class="s2">&quot;6735a29c-c000-4ae3-94e6-1f1c934f7f94&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="hll"><span class="w">    </span><span class="nt">&quot;correlation_id&quot;</span><span class="p">:</span><span class="s2">&quot;Root=1-60488877-0b0c4e6727ab2a1c545babd0&quot;</span><span class="w"></span>
-</span><span class="p">}</span><span class="w"></span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;lambda_handler:22&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:{</span>
+<span class="hll"><span class="w">        </span><span class="nt">&quot;x-forwarded-for&quot;</span><span class="p">:</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="s2">&quot;mike&quot;</span>
+</span><span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="s2">&quot;2021-03-10 12:38:40,062&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="s2">&quot;service_undefined&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sampling_rate&quot;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;cold_start&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;function_name&quot;</span><span class="p">:</span><span class="s2">&quot;func_name&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;function_memory_size&quot;</span><span class="p">:</span><span class="mi">512</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;function_arn&quot;</span><span class="p">:</span><span class="s2">&quot;func_arn&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;function_request_id&quot;</span><span class="p">:</span><span class="s2">&quot;6735a29c-c000-4ae3-94e6-1f1c934f7f94&quot;</span><span class="p">,</span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;correlation_id&quot;</span><span class="p">:</span><span class="s2">&quot;Root=1-60488877-0b0c4e6727ab2a1c545babd0&quot;</span>
+</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
@@ -2305,7 +2312,7 @@ decompress and parse json data from the event.</p>
 
 <span class="nd">@event_source</span><span class="p">(</span><span class="n">data_class</span><span class="o">=</span><span class="n">CodePipelineJobEvent</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;The Lambda function handler</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The Lambda function handler</span>
 
 <span class="sd">    If a continuing job then checks the CloudFormation stack status</span>
 <span class="sd">    and updates the job accordingly.</span>
@@ -2520,36 +2527,36 @@ can be imported from <code>aws_lambda_powertools.data_classes.cognito_user_pool_
 <span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;region&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;userPoolId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1_example&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;userName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UserName&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;callerContext&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;awsSdkVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;awsSdkVersion&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clientId&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;triggerSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DefineAuthChallenge_Authentication&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;userAttributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sub&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4A709A36-7D63-4785-829D-4198EF10EBDA&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;email_verified&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First Last&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;define-auth@mail.com&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;session&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SRP_A&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="hll"><span class="w">    </span><span class="nt">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><span class="hll"><span class="w">        </span><span class="nt">&quot;issueTokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-</span><span class="hll"><span class="w">        </span><span class="nt">&quot;failAuthentication&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-</span><span class="w">        </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PASSWORD_VERIFIER&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;region&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;userPoolId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1_example&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;userName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UserName&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;callerContext&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;awsSdkVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;awsSdkVersion&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clientId&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;triggerSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DefineAuthChallenge_Authentication&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;userAttributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sub&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4A709A36-7D63-4785-829D-4198EF10EBDA&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;email_verified&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First Last&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;define-auth@mail.com&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;session&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SRP_A&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;issueTokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;failAuthentication&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span class="w">        </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PASSWORD_VERIFIER&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
@@ -2586,40 +2593,40 @@ can be imported from <code>aws_lambda_powertools.data_classes.cognito_user_pool_
 <span class="normal">31</span>
 <span class="normal">32</span>
 <span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;region&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;userPoolId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1_example&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;userName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UserName&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;callerContext&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;awsSdkVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;awsSdkVersion&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clientId&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;triggerSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DefineAuthChallenge_Authentication&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;userAttributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sub&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4A709A36-7D63-4785-829D-4198EF10EBDA&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;email_verified&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First Last&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;define-auth@mail.com&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;session&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SRP_A&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PASSWORD_VERIFIER&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="hll"><span class="w">        </span><span class="nt">&quot;issueTokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-</span><span class="hll"><span class="w">        </span><span class="nt">&quot;failAuthentication&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-</span><span class="hll"><span class="w">        </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CUSTOM_CHALLENGE&quot;</span><span class="w"></span>
-</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;region&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;userPoolId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1_example&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;userName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UserName&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;callerContext&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;awsSdkVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;awsSdkVersion&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clientId&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;triggerSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DefineAuthChallenge_Authentication&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;userAttributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sub&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4A709A36-7D63-4785-829D-4198EF10EBDA&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;email_verified&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First Last&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;define-auth@mail.com&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;session&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SRP_A&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PASSWORD_VERIFIER&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">        </span><span class="nt">&quot;issueTokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;failAuthentication&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CUSTOM_CHALLENGE&quot;</span>
+</span><span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
@@ -2659,43 +2666,43 @@ can be imported from <code>aws_lambda_powertools.data_classes.cognito_user_pool_
 <span class="normal">34</span>
 <span class="normal">35</span>
 <span class="normal">36</span>
-<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;region&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;userPoolId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1_example&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;userName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UserName&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;callerContext&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;awsSdkVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;awsSdkVersion&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clientId&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;triggerSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DefineAuthChallenge_Authentication&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;userAttributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sub&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4A709A36-7D63-4785-829D-4198EF10EBDA&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;email_verified&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First Last&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;define-auth@mail.com&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;session&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SRP_A&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PASSWORD_VERIFIER&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CUSTOM_CHALLENGE&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="hll"><span class="w">        </span><span class="nt">&quot;issueTokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-</span><span class="hll"><span class="w">        </span><span class="nt">&quot;failAuthentication&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;region&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;userPoolId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us-east-1_example&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;userName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UserName&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;callerContext&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;awsSdkVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;awsSdkVersion&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;clientId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clientId&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;triggerSource&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DefineAuthChallenge_Authentication&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;userAttributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sub&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4A709A36-7D63-4785-829D-4198EF10EBDA&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;email_verified&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First Last&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;define-auth@mail.com&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;session&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SRP_A&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PASSWORD_VERIFIER&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;challengeName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CUSTOM_CHALLENGE&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;challengeResult&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">        </span><span class="nt">&quot;issueTokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span class="hll"><span class="w">        </span><span class="nt">&quot;failAuthentication&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+</span><span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
@@ -3247,42 +3254,6 @@ for more details.</p>
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../validation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Validation" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Validation
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../parser/" class="md-footer__link md-footer__link--next" aria-label="Next: Parser (Pydantic)" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Parser (Pydantic)
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -3308,16 +3279,15 @@ for more details.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.sections", "navigation.expand", "navigation.top", "navigation.instant", "navigation.indexes", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.sections", "navigation.expand", "navigation.top", "navigation.instant", "navigation.indexes", "navigation.tracking", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
         <script src="../../javascript/aws-amplify.min.js"></script>
       
         <script src="../../javascript/extra.js"></script>
       
-    
     
   </body>
 </html>
